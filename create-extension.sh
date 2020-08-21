@@ -1,6 +1,6 @@
 #!/bin/sh
 
-echo GNOME Shell Extensions Creator
+echo GNOME Shell Extension Creator
 echo by: ADeswanta
 echo
 echo Type your extension name:
