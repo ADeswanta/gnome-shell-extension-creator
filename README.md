@@ -1,1 +1,1 @@
-# gnome-shell-extension-creator
+# GNOME Shell Extension Creator
