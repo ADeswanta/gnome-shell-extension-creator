@@ -1,7 +1,7 @@
 # GNOME Shell Extension Creator
 
-Made by: ADeswanta
+It's used for create your own GNOME Shell extension in one script
 
-It's on the development
+- Made by: ADeswanta
 
-It's used for create your own extension in one click
+**It's on the development**
