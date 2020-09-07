@@ -7,12 +7,9 @@ echo Type your extension name:
 read ext_name
 echo
 
-ext_name_uuid=${ext_name// /_}
-ext_name_uuid=${ext_name_uuid,,}
-
 function name_notfound {
   echo it\'s blank, try again
-  read -p "" ext_name
+  read ext_name
   echo
   if [ -z $ext_name ]; then
     name_notfound
@@ -21,10 +18,13 @@ function name_notfound {
   fi
 }
 
-if [ -z $ext_name ]
+if [ -z "$ext_name" ]
 then
   name_notfound
 fi
+
+ext_name_uuid=${ext_name// /_}
+ext_name_uuid=${ext_name_uuid,,}
 
 echo Type your extension description:
 read ext_desc
@@ -35,7 +35,7 @@ echo
 
 function uuid_notfound {
   echo it\'s blank, try again
-  read -p "$ext_name@" ext_uuid
+  read -p "$ext_name_uuid@" ext_uuid
   echo
   if [ -z $ext_uuid ]; then
     uuid_notfound
@@ -90,7 +90,7 @@ if [[ $ext_ver == *$CHAR_STOP* ]]; then
   have_double
 fi
 
-ext_uuid=$ext_name@$ext_uuid
+ext_uuid=$ext_name_uuid@$ext_uuid
 
 echo Collecting information...
 echo
@@ -109,7 +109,7 @@ function create_dir {
 }
 
 function create_metadata {
-  if [ -z $ext_desc ]; then
+  if [ -z "$ext_desc" ]; then
     ext_desc="The $ext_name Extension"
   fi
   ext_DIR_meta=$HOME/.local/share/gnome-shell/extensions/$ext_uuid/metadata.json
